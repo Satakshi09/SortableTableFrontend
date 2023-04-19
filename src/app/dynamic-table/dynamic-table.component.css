@@ -1,0 +1,16 @@
+table {
+    border-spacing: 10px;
+  }
+  td, th {
+    border: 1px solid black;
+  }
+  td, th {
+    text-align: center;
+  }
+  :host ::ng-deep .p-datatable {
+    background-color: #eee;
+  }
+  .custom-header {
+    background-color: #1c1919;
+  }
+  

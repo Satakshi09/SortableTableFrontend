@@ -1,0 +1,40 @@
+<p-button (click)="showDialog()" icon="pi pi-filter" label="Filter" class="blue-button"></p-button>
+<!-- <p-button (click)="showDialog()" icon="pi pi-external-link" label="Filter"></p-button>  -->
+<p-dialog header="Filter The data " [(visible)]="displayDialog" [style]="{
+  width: '50vw', 
+  padding: '30px', 
+  fontSize: '15px', 
+  fontWeight: '500', 
+  fontFamily: 'cursive', 
+  background: 'gray', 
+  border: '2px solid black', 
+  borderRadius: '25px'
+}">
+  <div class="p-fluid">
+    <div class="p-field">
+      <label for="idInput">Id : </label>
+      <input id="idInput" type="text" pInputText placeholder="Enter text here" [(ngModel)]="id">
+    </div>
+    <div class="p-field">
+      <label for="vinInput">Vin :</label>
+      <input id="vinInput" type="text" pInputText placeholder="Enter text here" [(ngModel)]="vin">
+    </div>
+    <div class="p-field">
+      <label for="yearInput">Year :</label>
+      <input id="yearInput" type="text" pInputText placeholder="Enter text here" [(ngModel)]="year">
+    </div>
+    <div class="p-field">
+      <label for="brandInput">Brand :</label>
+      <input id="brandInput" type="text" pInputText placeholder="Enter text here" [(ngModel)]="brand">
+    </div>
+    <div class="p-field">
+      <label for="colorInput">Color :</label>
+      <input id="colorInput" type="text" pInputText placeholder="Enter text here" [(ngModel)]="color">
+    </div>
+    <div class="p-field">
+      <label for="priceInput">Price :</label>
+      <input id="priceInput" type="text" pInputText placeholder="Enter text here" [(ngModel)]="price">
+    </div>
+  </div>
+  <button pButton type="button" label="Filter" (click)="applyFilter()"></button>
+</p-dialog>

@@ -1,0 +1,25 @@
+<app-sort-dialog (sortSelected)="onSortChanged($event)"></app-sort-dialog>
+
+<app-dialog-component (filterOptions)="onFilterChanged($event)"></app-dialog-component>
+
+<p-table [value]="data" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10,20]" [(first)]="first">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of cols" style="color: rgb(31, 26, 26);">
+                {{col.header}}
+                <span *ngIf="col.field !== 'actions'">
+                    <!-- <button pButton icon="pi pi-sort" (click)="sort(col.field)"></button> -->
+                    <!-- <button pButton icon="pi pi-filter" (click)="showFilter(col.field)"></button> -->
+                </span>
+            </th>
+        </tr>
+    </ng-template>
+    
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" style="color:rgb(118, 16, 16)">
+        <tr>
+            <td *ngFor="let col of cols">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
