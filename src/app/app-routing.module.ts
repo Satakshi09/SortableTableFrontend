@@ -1,7 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
+import { CreateCarComponent } from './create-car/create-car.component';
+import { UpdateCarComponent } from './update-car/update-car.component';
+import { CarDetailsComponent } from './car-details/car-details.component';
+const routes: Routes = [
+  { path: 'cars', component: DynamicTableComponent },
+  { path: '', redirectTo: 'cars', pathMatch: 'full'},
+  { path:'create-car',component:CreateCarComponent},
+  { path:'update-car/:id',component:UpdateCarComponent},
+  { path:'car-details/:id', component:CarDetailsComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output} from '@angular/core';
+import { Car } from '../car';
 
 @Component({
   selector: 'app-sort-dialog',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, Output} from '@angular/core';
 })
 export class SortDialogComponent {
 
-  @Output() sortSelected = new EventEmitter<{ field: string, direction: string }>();
+  @Output() sortSelected = new EventEmitter<{ field: keyof Car, direction: string }>();
 
   displayDialog = false;
 
@@ -39,8 +40,9 @@ export class SortDialogComponent {
   applySort() {
     const selectedField = this.fields.find(field => field.value === this.selectedField?.value);
     if (selectedField) {
-      this.sortSelected.emit({ field: selectedField.orderBy, direction: this.direction });
+      this.sortSelected.emit({ field: selectedField.orderBy as keyof Car, direction: this.direction });
     }
+    
     this.hideDialog();
   }
 }

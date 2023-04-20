@@ -1,0 +1,12 @@
+.p-col-16 {
+    max-width: 200px;
+    margin: 0 auto;
+}
+.p-button p-button-success{
+    margin-bottom: 20px;
+}
+input::placeholder {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  

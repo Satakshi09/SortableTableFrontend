@@ -15,13 +15,18 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { Dropdown, DropdownModule } from 'primeng/dropdown';
 import {Menubar, MenubarModule} from 'primeng/menubar';
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { CreateCarComponent } from './create-car/create-car.component';
+import { UpdateCarComponent } from './update-car/update-car.component';
 @NgModule({
   declarations: [
     AppComponent,
     DynamicTableComponent,
     DialogComponentComponent,
-    SortDialogComponent
+    SortDialogComponent,
+    NavbarComponent,
+    CreateCarComponent,
+    UpdateCarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+<div class="p-col-16 p-offset-8">
+  <h3>Create Car</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="p-field">
+      <label for="vin">VIN:</label>
+      <input type="text" class="p-inputtext" id="vin" [(ngModel)]="car.vin" name="vin" required>
+    </div>
+    <div class="p-field">
+      <label for="year">Year:</label>
+      <input type="number" class="p-inputtext" id="year" [(ngModel)]="car.year" name="year" required>
+    </div>
+    <div class="p-field">
+      <label for="brand">Brand:</label>
+      <input type="text" class="p-inputtext" id="brand" [(ngModel)]="car.brand" name="brand" required>
+    </div>
+    <div class="p-field">
+      <label for="color">Color:</label>
+      <input type="text" class="p-inputtext" id="color" [(ngModel)]="car.color" name="color" required>
+    </div>
+    <div class="p-field">
+      <label for="price">Price:</label>
+      <input type="number" class="p-inputtext" id="price" [(ngModel)]="car.price" name="price" required>
+    </div>
+
+    <button type="submit" class="p-button p-button-success">Submit</button>
+  </form>
+</div>
