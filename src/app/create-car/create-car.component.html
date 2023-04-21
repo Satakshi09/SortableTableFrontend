@@ -1,5 +1,5 @@
-<div class="p-col-16 p-offset-8">
-  <h3>Create Car</h3>
+<div class="form-container">
+  <h3>{{ isCreateFlow ? 'Create Car' : 'Update Car' }}</h3>
   <form (ngSubmit)="onSubmit()">
     <div class="p-field">
       <label for="vin">VIN:</label>
@@ -21,7 +21,6 @@
       <label for="price">Price:</label>
       <input type="number" class="p-inputtext" id="price" [(ngModel)]="car.price" name="price" required>
     </div>
-
-    <button type="submit" class="p-button p-button-success">Submit</button>
+    <button type="submit" class="p-button p-button-success">{{ isCreateFlow ? 'Create' : 'Update' }}</button>
   </form>
 </div>

@@ -11,7 +11,7 @@ export class CarService {
   cars: Car[] = [];
 
   constructor(private http: HttpClient) { }
-
+  
   getCarsList(): Observable<Car[]> {
     return this.http.get<Car[]>(`${this.apiUrl}`);
   }
@@ -19,15 +19,15 @@ export class CarService {
   createCar(car: Car): Observable<Object> {
     return this.http.post<{ car1: Car }>(`${this.apiUrl}/add`, car);
   }
-
+  
   getCarById(id: number): Observable<Car> {
     return this.http.get<Car>(`${this.apiUrl}/${id}`);
   }
-
+  
   updateCar(id: number, car: Car): Observable<Object> {
     return this.http.put(`${this.apiUrl}/${id}`, car);
   }
-
+  
   deleteCar(id: number): Observable<Object> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }

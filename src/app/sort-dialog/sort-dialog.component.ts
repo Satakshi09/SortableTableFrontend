@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output} from '@angular/core';
 import { Car } from '../car';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-sort-dialog',
@@ -42,7 +43,6 @@ export class SortDialogComponent {
     if (selectedField) {
       this.sortSelected.emit({ field: selectedField.orderBy as keyof Car, direction: this.direction });
     }
-    
     this.hideDialog();
   }
 }

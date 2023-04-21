@@ -32,7 +32,6 @@ export class DialogComponentComponent {
   }
 
   applyFilter() {
-    // Emit the filter options to the parent component
     this.filterOptions.emit({
       id: this.id,
       vin: this.vin,

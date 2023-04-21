@@ -1,0 +1,4 @@
+::ng-deep .p-dropdown .p-dropdown-panel {
+    max-height: 200px;
+  }
+  

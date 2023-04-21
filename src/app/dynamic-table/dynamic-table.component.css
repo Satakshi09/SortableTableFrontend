@@ -7,9 +7,6 @@ table {
   td, th {
     text-align: center;
   }
-  /* :host ::ng-deep .p-datatable {
-    background-color: #b9a0a0;
-  } */
   .custom-header {
     background-color: #1c1919;
   }

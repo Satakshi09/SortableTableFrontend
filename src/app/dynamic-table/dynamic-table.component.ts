@@ -21,7 +21,9 @@ export class DynamicTableComponent implements OnInit{
     { field: 'color', header: 'Color' },
     { field: 'price', header: 'Price' },
   ];
+ 
   first = 0;
+  
   idFilterText: any;
   vinFilterText: any;
   yearFilterText: any;
@@ -30,28 +32,33 @@ export class DynamicTableComponent implements OnInit{
   filteredData: any;
   priceFilterText: any;
   constructor(private carService: CarService, private router: Router ) { }
+  
   ngOnInit(): void {
     this.getCars();
   }
+  
   private getCars() {
     this.carService.getCarsList().subscribe((data) => {
       this.cars = data;
       console.log(this.cars);
     });
   }
-
+ 
   carDetails(id: number) {
     this.router.navigate(['car-details', id]);
   }
+
   updateCar(id: number) {
     this.router.navigate(['update-car', id]);
   }
+
   deleteCar(id: number) {
     this.carService.deleteCar(id).subscribe((data) => {
       console.log(data);
       this.getCars();
     });
   }
+
   onFilterChanged(filterData: {[key: string]: any}): void {
     const filteredData = this.cars.filter((item: any) => {
       let bool = true;

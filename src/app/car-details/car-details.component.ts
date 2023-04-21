@@ -10,7 +10,7 @@ import { CarService } from '../services/car.service';
 })
 export class CarDetailsComponent implements OnInit {
   id: number = 0;
-  car: Car = new Car(1, '', 0, '', '', 0);
+  car: Car = new Car();
 
   constructor(private route: ActivatedRoute, private carService: CarService) { }
 

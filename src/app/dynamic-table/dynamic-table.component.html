@@ -20,19 +20,15 @@
     </tr>
   </ng-template>
 
-  <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" style="color: rgb(115, 80, 80)">
+  <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" style="color: rgb(20, 20, 20)">
     <tr>
       <td *ngFor="let col of cols">
         {{ rowData[col.field] }}
       </td>
       <td>
         <button (click)="updateCar(rowData.id)" class="btn-btn-info">Update</button>
-        <button (click)="deleteCar(rowData.id)" class="btn-btn-danger" style="margin-left: 10px">
-          Delete
-        </button>
-        <button (click)="carDetails(rowData.id)" class="btn-btn-danger" style="margin-left: 10px">
-          Retrieve
-        </button>
+        <button (click)="deleteCar(rowData.id)" class="btn-btn-danger" style="margin-left: 10px"> Delete</button>
+        <button (click)="carDetails(rowData.id)" class="btn-btn-danger" style="margin-left: 10px"> Retrieve</button>
       </td>
     </tr>
   </ng-template>
