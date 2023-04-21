@@ -18,6 +18,7 @@ import {Menubar, MenubarModule} from 'primeng/menubar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreateCarComponent } from './create-car/create-car.component';
 import { UpdateCarComponent } from './update-car/update-car.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { UpdateCarComponent } from './update-car/update-car.component';
     SortDialogComponent,
     NavbarComponent,
     CreateCarComponent,
-    UpdateCarComponent
+    UpdateCarComponent   
   ],
   imports: [
     BrowserModule,

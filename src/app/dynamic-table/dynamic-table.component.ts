@@ -52,51 +52,33 @@ export class DynamicTableComponent implements OnInit{
       this.getCars();
     });
   }
-  onFilterChanged(filterData: { id: any, vin: any, year: any, brand: any, color: any, price: any }): void {
+  onFilterChanged(filterData: {[key: string]: any}): void {
     const filteredData = this.cars.filter((item: any) => {
       let bool = true;
-      if (filterData.id && item.id && !(`${item.id}`.toLowerCase().includes(`${filterData.id}`.toLowerCase()) || `${item.id}`.toUpperCase().includes(`${filterData.id}`.toUpperCase()))) {
-        bool = false;
-      }
-      if (filterData.vin && item.vin && !(`${item.vin}`.toLowerCase().includes(`${filterData.vin}`.toLowerCase()) || `${item.vin}`.toUpperCase().includes(`${filterData.vin}`.toUpperCase()))) {
-        bool = false;
-      }
-      if (filterData.year && item.year && !(`${item.year}`.toLowerCase().includes(`${filterData.year}`.toLowerCase()) || `${item.year}`.toUpperCase().includes(`${filterData.year}`.toUpperCase()))) {
-        bool = false;
-      }
-      if (filterData.brand && item.brand && !(`${item.brand}`.toLowerCase().includes(`${filterData.brand}`.toLowerCase()) || `${item.brand}`.toUpperCase().includes(`${filterData.brand}`.toUpperCase()))) {
-        bool = false;
-      }
-      if (filterData.color && item.color && !(`${item.color}`.toLowerCase().includes(`${filterData.color}`.toLowerCase()) || `${item.color}`.toUpperCase().includes(`${filterData.color}`.toUpperCase()))) {
-        bool = false;
-      }
-      if (filterData.price && item.price && !(`${item.price}`.toLowerCase().includes(`${filterData.price}`.toLowerCase()) || `${item.price}`.toUpperCase().includes(`${filterData.price}`.toUpperCase()))) {
-        bool = false;
-      }
+      Object.keys(filterData).forEach((key: string) => {
+        if (item.hasOwnProperty(key) && filterData[key] && !(`${item[key]}`.toLowerCase().includes(`${filterData[key]}`.toLowerCase()) || `${item[key]}`.toUpperCase().includes(`${filterData[key]}`.toUpperCase()))) {
+          bool = false;
+        }
+      });
       return bool;
     });
     this.cars = filteredData;
   }
   
-
   onSortChanged(event: { field: keyof Car, direction: string }) {
     const { field, direction } = event;
     let sortDirection = 1;
     if (direction === 'desc') {
       sortDirection = -1;
     }
-
-    for (let i = 0; i < this.cars.length - 1; i++) {
-      for (let j = 0; j < this.cars.length - i - 1; j++) {
-        if (this.cars[j][field] > this.cars[j + 1][field]) {
-          const temp = this.cars[j];
-          this.cars[j] = this.cars[j + 1];
-          this.cars[j + 1] = temp;
-        }
+    this.cars.sort((a: Car, b: Car) => {
+      if (a[field] < b[field]) {
+        return -1 * sortDirection;
       }
-    }
-    if (sortDirection === -1) {
-      this.cars.reverse();
-    }
-  }
+      if (a[field] > b[field]) {
+        return 1 * sortDirection;
+      }
+      return 0;
+    });
+  }  
 }

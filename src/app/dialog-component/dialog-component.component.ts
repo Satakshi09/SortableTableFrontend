@@ -3,12 +3,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'app-dialog-component',
   templateUrl: './dialog-component.component.html',
-  styleUrls: ['./dialog-component.component.css']
+  styleUrls: ['./dialog-component.component.css'],
 })
 export class DialogComponentComponent {
-  @Output() filterOptions = new EventEmitter<{ id: any, vin: any, year: any, brand: any, color: any, price: any }>();
+  @Output() filterOptions = new EventEmitter<{ [key: string]: any }>();
+
   displayDialog = false;
-  title = "dialogStyling";
+  title = 'dialogStyling';
   searchText: string = '';
 
   id: any;
@@ -32,14 +33,14 @@ export class DialogComponentComponent {
 
   applyFilter() {
     // Emit the filter options to the parent component
-    this.filterOptions.emit({ 
+    this.filterOptions.emit({
       id: this.id,
       vin: this.vin,
       year: this.year,
       brand: this.brand,
       color: this.color,
-      price: this.price
+      price: this.price,
     });
     this.hideDialog();
-  }    
   }
+}

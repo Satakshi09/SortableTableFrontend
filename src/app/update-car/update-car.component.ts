@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateCarComponent implements OnInit {
   id: number = 0;
-  car: Car = new Car();
+  car: Car = new Car(1, '', 0, '', '', 0);
   constructor(private carService: CarService, private route: ActivatedRoute, private router: Router) {
 
   }

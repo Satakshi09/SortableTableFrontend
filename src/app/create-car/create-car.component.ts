@@ -1,15 +1,15 @@
-import { Car } from '../car';
 import { Component, OnInit } from '@angular/core';
 import { CarService } from '../services/car.service';
 import { Router } from '@angular/router';
-
+import { Car } from '../car';
 @Component({
   selector: 'app-create-car',
   templateUrl: './create-car.component.html',
   styleUrls: ['./create-car.component.css']
 })
 export class CreateCarComponent implements OnInit {
-  car: Car = new Car();
+  car: Car = new Car(1, '', 0, '', '', 0);
+
   constructor(private carService: CarService, private router: Router) {
 
   }
